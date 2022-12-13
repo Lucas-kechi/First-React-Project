@@ -1,18 +1,23 @@
 .container {
-    height: 40vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
+}
+
+.list {
+    width: 30%;
+    margin-top: 20px;
 }
 
 .container h1 {
+    margin: 20px 0 10px;
     font-size: 64px;
 }
 
 .container input {
     width: 30%;
-    height: 15%;
+    height: 45px;
+    margin: 20px 0 10px;
     
     padding: 0 20px;
     border: none;
@@ -26,6 +31,7 @@
     font-size: 16px;
     font-weight: 600;
     padding: 24px;
+    margin: 20px 0 10px;
 
     color: #FFFFFF;
     border: none;
