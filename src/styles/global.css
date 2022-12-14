@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 body, input, button {
     font: 16px;
     font-family: 'Roboto', sans-serif;

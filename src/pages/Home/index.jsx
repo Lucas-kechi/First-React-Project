@@ -9,9 +9,9 @@ export function Home() {
       <button type='button'>Adicionar</button>
       
       <div className='list'>
-        <Card />
-        <Card />
-        <Card />  
+        <Card name="Lucas de Freitas Kechi Paiva" hour="14:12:35"/>
+        <Card name="Leo de Freitas Kechi Paiva" hour="14:24:43"/>
+        <Card name="Daniele dos santos" hour="14:24:59"/>  
       </div>
     </div>
   )
