@@ -21,7 +21,13 @@ export function Home() {
 
   return ( // abaixo teremos o retorno da função, ela deve retornar apenas um elemento, em resolução aqui usamos uma <div> mas também podemos utilizar um 'fragment', um elemento vazio, <> (conteúdo HTML) </>
     <div className='container'> 
-      <h1>Lista de Presença</h1>
+      <header>
+        <h1>Lista de Presença</h1>
+        <div>
+          <strong>Lucas Kechi</strong>
+          <img src="https://github.com/lucas-kechi.png" alt="Imagem de perfil" />
+        </div>
+      </header>
       <h2>Pré-vizualização:</h2>
       <Card name={personName} hour={
         new Date().toLocaleTimeString("pt-br", {
