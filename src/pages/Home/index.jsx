@@ -21,11 +21,14 @@ export function Home() {
   }
 
   useEffect(() => {    //O corpo do useEffect, ou seja, o código que queremos reproduzir
-    fetch('https://api.github.com/users/lucas-kechi')
-    .then(response => response.json())
-    .then(data => {
+    async function asyncEffect() {
+      const response = await fetch('https://api.github.com/users/lucas-kechi');
+      const data = await response.json();
+
       setUser({name: data.name, avatar: data.avatar_url})
-    })
+    }
+    
+    asyncEffect();
   }, []); //O segundo argumento é um array de dependências, onde adicionamos os Estados que o useEffect será chamado, por padrão ele já é chamado no carregamento da aplicação.
 
 
