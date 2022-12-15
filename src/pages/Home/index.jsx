@@ -41,7 +41,13 @@ export function Home() {
       
       <div className='list'>
       {
-        studentsArray.map(el => <Card name={el.name} hour={el.time} />) //Aqui onde aplicamos um map no array do estado, que criará um card para cada length, utilizando as chaves do objeto.
+        studentsArray.map(el => 
+          <Card 
+            key={studentsArray.indexOf(el)} // Cada card criado terá sua key prop pessoal, pois será o index de cada elemento nesse caso.
+            name={el.name} 
+            hour={el.time} 
+          />
+        ) //Aqui onde aplicamos um map no array do estado, que criará um card para cada length, utilizando as chaves do objeto.
       }
       </div>
     </div>
