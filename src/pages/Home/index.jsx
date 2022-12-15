@@ -3,8 +3,9 @@ import './style.css';
 import { Card } from '../../components/Card';
 
 export function Home() {
-  const [personName, setPersonName] = useState("Nome inserido") //Aqui também podemos deixar um informação como default ex: useState('Adriana')
-  const [studentsArray, setStudentsArray] = useState([]) // Novo Estado para armazenar em um array nossa lista de nomes com a hora
+  const [personName, setPersonName] = useState("Nome inserido"); //Aqui também podemos deixar um informação como default ex: useState('Adriana')
+  const [studentsArray, setStudentsArray] = useState([]); // Novo Estado para armazenar em um array nossa lista de nomes com a hora
+  const [user, setUser] = useState({name: '', avatar: ''}); // Criando um estado para usar na API
 
   function creatingNewsStudents() { // função para ser chamada no botão, onde criará um objeto com chaves nome e tempo
     const newStudent = {
@@ -20,7 +21,11 @@ export function Home() {
   }
 
   useEffect(() => {    //O corpo do useEffect, ou seja, o código que queremos reproduzir
-    console.log("useEffect foi chamado!");
+    fetch('https://api.github.com/users/lucas-kechi')
+    .then(response => response.json())
+    .then(data => {
+      setUser({name: data.name, avatar: data.avatar_url})
+    })
   }, []); //O segundo argumento é um array de dependências, onde adicionamos os Estados que o useEffect será chamado, por padrão ele já é chamado no carregamento da aplicação.
 
 
@@ -29,8 +34,8 @@ export function Home() {
       <header>
         <h1>Lista de Presença</h1>
         <div>
-          <strong>Lucas Kechi</strong>
-          <img src="https://github.com/lucas-kechi.png" alt="Imagem de perfil" />
+          <strong>{user.name}</strong>
+          <img src={user.avatar} alt="Imagem de perfil" />
         </div>
       </header>
       <h2>Pré-vizualização:</h2>
