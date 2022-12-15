@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import { Card } from '../../components/Card';
 
 export function Home() {
   const [personName, setPersonName] = useState("Nome inserido") //Aqui também podemos deixar um informação como default ex: useState('Adriana')
   const [studentsArray, setStudentsArray] = useState([]) // Novo Estado para armazenar em um array nossa lista de nomes com a hora
-  
+
   function creatingNewsStudents() { // função para ser chamada no botão, onde criará um objeto com chaves nome e tempo
     const newStudent = {
       name: personName,
@@ -15,9 +15,14 @@ export function Home() {
         second: '2-digit',
       })
     }
-
+    
     setStudentsArray(prevState => [...prevState, newStudent]); // A chamada da função do estado, para armazenar o novo nome inserido, observamos que em seu argumento temos uma callback, que será o conteúdo anterior desse estado. Então aplicamos um spread operator pois esse conteúdo está dentro de um array.
   }
+
+  useEffect(() => {    //O corpo do useEffect, ou seja, o código que queremos reproduzir
+    console.log("useEffect foi chamado!");
+  }, []); //O segundo argumento é um array de dependências, onde adicionamos os Estados que o useEffect será chamado, por padrão ele já é chamado no carregamento da aplicação.
+
 
   return ( // abaixo teremos o retorno da função, ela deve retornar apenas um elemento, em resolução aqui usamos uma <div> mas também podemos utilizar um 'fragment', um elemento vazio, <> (conteúdo HTML) </>
     <div className='container'> 
