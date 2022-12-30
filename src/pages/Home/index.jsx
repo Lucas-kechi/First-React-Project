@@ -27,10 +27,9 @@ export function Home() {
 
       setUser({name: data.name, avatar: data.avatar_url})
     }
-    
+    console.log('render')
     asyncEffect();
   }, []); //O segundo argumento é um array de dependências, onde adicionamos os Estados que o useEffect será chamado, por padrão ele já é chamado no carregamento da aplicação.
-
 
   return ( // abaixo teremos o retorno da função, ela deve retornar apenas um elemento, em resolução aqui usamos uma <div> mas também podemos utilizar um 'fragment', um elemento vazio, <> (conteúdo HTML) </>
     <div className='container'> 
